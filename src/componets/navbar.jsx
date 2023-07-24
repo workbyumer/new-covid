@@ -15,9 +15,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SearchCountry from "./autocomplete";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["Table", "Chart", "Map"];
 
 function Navbar({ window, setcountry }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -73,9 +74,11 @@ function Navbar({ window, setcountry }) {
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
+              <Link to={"/" + item}>
+                <Button key={item} sx={{ color: "#fff" }}>
+                  {item}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
